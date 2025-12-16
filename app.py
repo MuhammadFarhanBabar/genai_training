@@ -38,7 +38,7 @@ SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 # Embeddings and Vectorstore
 embeddings = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
 vectorstore = pc.from_existing_index(
-    index_name="pinecorntesindx",
+    index_name=os.getenv("INDEX_NAME"),
     embedding=embeddings,
 )
 
